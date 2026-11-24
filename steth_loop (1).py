@@ -29,7 +29,7 @@ SECONDS_PER_YEAR = 365 * 24 * 3600
 OUT = Path("output")
 
 
-# ---------------------------------------------------------------- rate models
+# rate models
 
 @dataclass(frozen=True)
 class KinkedIRM:
@@ -104,7 +104,7 @@ class AdaptiveCurveIRM:
         )
         return self.borrow_rate(utilisation)
 
-# ---------------------------------------------------------------- amm / slippage
+# amm / slippage
 
 @dataclass
 class ConstantProductPool:
@@ -201,7 +201,7 @@ def max_safe_liquidation_size(pool, liquidation_bonus):
             hi = mid
     return lo
 
-# ---------------------------------------------------------------- backtest
+# backtest
 
 @dataclass
 class LoopConfig:
@@ -315,7 +315,7 @@ def summarise(ledger, equity0):
         "total_slippage_eth": float(ledger["slippage_eth"].sum()),
     }
 
-# ---------------------------------------------------------------- charts + cli
+# charts + cli
 
 
 def make_pool():
@@ -386,7 +386,7 @@ def main():
     print(f"charts -> {OUT}/")
 
 
-# ---------------------------------------------------------------- tests (pytest steth_loop.py)
+#  tests
 
 def test_kink_is_continuous():
     u = AAVE_V3_WETH.optimal_utilisation
